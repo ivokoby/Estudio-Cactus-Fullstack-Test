@@ -6,10 +6,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "firebase": "^9.6.1",
     "next": "latest",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-firebase-hooks": "^5.1.1",
+    "rxfire": "^6.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",

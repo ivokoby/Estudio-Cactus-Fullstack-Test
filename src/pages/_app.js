@@ -1,11 +1,10 @@
 import '../styles/globals.css'
-import { TaskProvider } from '../context/taskContext'
+import '../firebase/config'
 
 function MyApp ({ Component, pageProps }) {
+  
   return (
-    <TaskProvider>
-      <Component {...pageProps} />
-    </TaskProvider>
+    <Component {...pageProps} />
   )
 }
 
