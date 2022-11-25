@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-img {
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/visualizer-new-devs-test.appspot.com/o/base.jpeg?alt=media&token=358ccdea-3cf9-4751-ae48-4631e4700554');
+    background-position: center; 
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%; 
+    position:fixed;
+    background-color: rgb(189, 189, 189);
+}
