@@ -1,64 +1,69 @@
 import { collection, getDocs } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import huella from '../../public/huella.png'
+import fingerprint from '../../public/fingerprint.png'
+import flecha from '../../public/flecha.png'
 import db from '../firebase/config'
+import Materials from './Materials'
+import ImageComponent from './ImageComponent'
 
 const Points = () => {
-    const [points, setPoints] = useState([])
-    const [pointId, setPointId] = useState([])
+  const [points, setPoints] = useState([])
+  const [pointId, setPointId] = useState('')
 
-    console.log('points', points)
-    console.log(2,pointId)
+  useEffect(() => {
+    (async () => {
+      const points = collection(db, 'points')
 
-    useEffect(() => {
-        (async () => {
-          const points = collection(db, 'points')
+      const snapshot_points = await getDocs(points)
 
-          const snapshot_points = await getDocs(points)
-    
-          const docs_points = snapshot_points.docs.map((doc) => {
-            const data = doc.data()
-    
-            data.id = doc.id
-            return data
-          })
-    
-          setPoints(docs_points)
-          
-        })()
-      }, [])
+      const docs_points = snapshot_points.docs.map((doc) => {
+        const data = doc.data()
 
-    const handleChange = (e) => {
-        console.log(e)
-    }
+        data.id = doc.id
+        return data
+      })
 
-    return (
-            <div>
-                { points.map((e) => (
-                    <div key={e.id}>
-                        <button onClick={handleChange(e.id)}>
-                            <Image src={huella} />
-                        </button>
-                        <style jsx>{`
-                            button {
-                                position: absolute;
-                                top: ${e.coordY}%;
-                                left: ${e.coordX}%;
-                                max-width: 50px;
-                                border: 1px solid black;
-                                border-radius: 70px;
-                                margin: 0;
-                                padding: 0;
-                            }
-                            button:hover {
-                                background-color: #969696;
-                            }
-                        `}</style>
-                    </div>
-                ))}
+      setPoints(docs_points)
+    })()
+  }, [])
+
+  return (
+    <div>
+      {pointId.length
+        ? (
+          <div>
+            <div className='grid justify-items-end mr-20 m-1 '>
+              <button onClick={() => setPointId('')} className=' relative justify-end p-4 back-btn'>
+                <Image src={flecha} />
+              </button>
+              <Materials
+                pointId={pointId}
+              />
             </div>
-    )
+          </div>
+          )
+        : (
+          <div>
+            {points.map((e) => (
+              <div key={e.id}>
+                <button className='point-btn' onClick={() => setPointId(e.id)}>
+                  <Image src={fingerprint} />
+                </button>
+                <style jsx>{`
+                    button {              
+                        top: ${e.coordY}%;
+                        left: ${e.coordX}%;   
+                    }
+                `}
+                </style>
+              </div>
+            ))}
+          </div>
+          )}
+      <ImageComponent />
+    </div>
+  )
 }
 
 export default Points
