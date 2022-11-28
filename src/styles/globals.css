@@ -19,9 +19,9 @@
 }
 
 .back-btn {
-    max-width: 6rem;
+    max-width: 5rem;
     margin: 1rem;
-    margin-right: 2rem;
+    margin-right: 1.6rem;
 }
 
 .btn-material:hover p {
@@ -111,7 +111,7 @@
       max-height: 58vw;
     }
 
-    .responsive img {
+    .material-responsive img {
       width: 90px;
       height: 90px;
       border: 5px solid white;
@@ -119,26 +119,29 @@
   }
 
   @media (max-width: 1579px) {
-    .responsive {
+    .material-responsive {
       margin-right: 0px;
     }
-    .responsive img {
+    .material-responsive img {
       width: 60px;
       height: 60px;;
     }
   }
 
   @media (max-width: 1579px) {
-    .responsive img {
+    .material-responsive img {
       display: flex;
     }
   }
 
   @media (max-width: 879px) {
-    .responsive {
-      margin-top: 90px;
+    .material-responsive {
+      margin: 0;
     }
-    .responsive p {
+    .margin-top {
+      margin-top: 160px;
+    }
+    .material-responsive p {
       font-size: 15px
     }
     .back-btn {

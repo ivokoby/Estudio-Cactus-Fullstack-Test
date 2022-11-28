@@ -34,15 +34,15 @@ const Materials = ({ pointId }) => {
       {material.length
         ? (
           <div>
-            <div className='grid justify-items-end'>
+            <div className='grid justify-items-end margin-top'>
               {
                   material.map((e) => (
                     <>
-                      <button key={e.id} className='hover:bg-white hover:rounded-lg btn-material responsive' onClick={() => handleChangeImage(e.layers[e.points])}>
+                      <button key={e.id} className='hover:bg-white hover:rounded-lg btn-material material-responsive' onClick={() => handleChangeImage(e.layers[e.points])}>
                         <div className='flex justify-end p-4'>
-                          <p className='pt-7 pr-3 text-2xl material-name '>{e.name}</p>
+                          <p className='pt-8 pr-3 text-base material-name '>{e.name}</p>
                           <div>
-                            <img className='w-32 h-32 border-8 border-white rounded-lg' src={e.materialPreview} alt='A' />
+                            <img className='w-24 h-24 border-4 border-white rounded-lg' src={e.materialPreview} alt='A' />
                           </div>
                         </div>
                       </button>
