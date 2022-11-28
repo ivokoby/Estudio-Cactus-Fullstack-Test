@@ -46,7 +46,7 @@ const Points = () => {
           )
         : (
           <div>
-            
+
             {points.map((e) => (
               <div key={e.id} className=''>
                 <button className='point-btn' onClick={() => setPointId(e.id)}>
