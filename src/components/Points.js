@@ -30,6 +30,7 @@ const Points = () => {
 
   return (
     <div>
+    <ImageComponent />
       {pointId.length
         ? (
           <div>
@@ -61,7 +62,7 @@ const Points = () => {
             ))}
           </div>
           )}
-      <ImageComponent />
+        
     </div>
   )
 }

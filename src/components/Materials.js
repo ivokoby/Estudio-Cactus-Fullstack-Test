@@ -1,12 +1,12 @@
 import { collection, getDocs, query, where } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import db from '../firebase/config'
-import ImageComponent from './ImageComponent'
+import { getLayers } from '../redux/actions.js'
 
 const Materials = ({ pointId }) => {
   const [material, setMaterial] = useState([])
-  const [image, setImage] = useState([])
-  console.log('a', material)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     (async () => {
@@ -25,7 +25,7 @@ const Materials = ({ pointId }) => {
   }, [])
 
   const handleChangeImage = (e) => {
-    setImage([image, e])
+    dispatch(getLayers(e))
   }
   //
   return (
@@ -49,11 +49,11 @@ const Materials = ({ pointId }) => {
                   ))
                   }
             </div>
-            <ImageComponent image={image} />
           </div>
           )
         : (
-          <ImageComponent image={image} />
+            <div>
+            </div>
           )}
     </>
   )
