@@ -34,7 +34,7 @@ const Points = () => {
       {pointId.length
         ? (
           <div>
-            <div className='grid justify-items-end'>
+            <div className='grid justify-items-end prueba'>
               <button onClick={() => setPointId('')} className=' relative justify-end p-4 back-btn'>
                 <Image src={flecha} />
               </button>

@@ -2,16 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  z-index:1;
-}
-
 .custom-img {
     background-position: center; 
     width: 100%;
     height: 100%; 
     position:fixed;
-    background-color: rgb(164, 164, 164);
+    background-color: rgb(205, 190, 190);
 }
 
 .material-name {
@@ -23,9 +19,9 @@
 }
 
 .back-btn {
-    max-width: 5rem;
+    max-width: 6rem;
     margin: 1rem;
-    margin-right: 1rem;
+    margin-right: 2rem;
 }
 
 .btn-material:hover p {
@@ -39,7 +35,7 @@
 
 .point-btn {
     position: fixed;
-    max-width: 2%;
+    max-width: 2.3%;
     position: absolute;
 }
 
@@ -53,12 +49,6 @@
     z-index:-1;
     height: 100%;
 }
-
-.width {
-  position: fixed;
-  max-height: 100px;
-}
-
 
 .loader {
     color: rgb(106, 106, 106);
@@ -121,4 +111,39 @@
       max-height: 58vw;
     }
 
+    .responsive img {
+      width: 90px;
+      height: 90px;
+      border: 5px solid white;
+    }
+  }
+
+  @media (max-width: 1579px) {
+    .responsive {
+      margin-right: 0px;
+    }
+    .responsive img {
+      width: 60px;
+      height: 60px;;
+    }
+  }
+
+  @media (max-width: 1579px) {
+    .responsive img {
+      display: flex;
+    }
+  }
+
+  @media (max-width: 879px) {
+    .responsive {
+      margin-top: 90px;
+    }
+    .responsive p {
+      font-size: 15px
+    }
+    .back-btn {
+      max-width: 5rem;
+      margin: 0rem;
+      margin-right: 0rem;
+    }
   }
