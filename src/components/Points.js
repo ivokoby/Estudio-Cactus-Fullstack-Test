@@ -15,26 +15,26 @@ const Points = () => {
     (async () => {
       const points = collection(db, 'points')
 
-      const snapshot_points = await getDocs(points)
+      const snapshotPoints = await getDocs(points)
 
-      const docs_points = snapshot_points.docs.map((doc) => {
+      const docsPoints = snapshotPoints.docs.map((doc) => {
         const data = doc.data()
 
         data.id = doc.id
         return data
       })
 
-      setPoints(docs_points)
+      setPoints(docsPoints)
     })()
   }, [])
 
   return (
     <div>
-    <ImageComponent />
+      <ImageComponent />
       {pointId.length
         ? (
           <div>
-            <div className='grid justify-items-end mr-20 m-1 '>
+            <div className='grid justify-items-end'>
               <button onClick={() => setPointId('')} className=' relative justify-end p-4 back-btn'>
                 <Image src={flecha} />
               </button>
@@ -46,15 +46,16 @@ const Points = () => {
           )
         : (
           <div>
+            
             {points.map((e) => (
-              <div key={e.id}>
+              <div key={e.id} className=''>
                 <button className='point-btn' onClick={() => setPointId(e.id)}>
                   <Image src={fingerprint} />
                 </button>
                 <style jsx>{`
                     button {              
+                        left: ${e.coordX}%;  
                         top: ${e.coordY}%;
-                        left: ${e.coordX}%;   
                     }
                 `}
                 </style>
@@ -62,7 +63,7 @@ const Points = () => {
             ))}
           </div>
           )}
-        
+
     </div>
   )
 }
