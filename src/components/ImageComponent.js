@@ -7,7 +7,7 @@ const ImageComponent = () => {
     <div>
       {
         layers.map((e) => (
-          <img src={e} className='material-img' />
+          <img src={e} key={e} className='material-img' />
         ))
       }
     </div>

@@ -2,7 +2,7 @@ import { collection, getDocs } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import fingerprint from '../../public/fingerprint.png'
-import flecha from '../../public/flecha.png'
+import back from '../../public/back.png'
 import db from '../firebase/config'
 import Materials from './Materials'
 import ImageComponent from './ImageComponent'
@@ -35,8 +35,8 @@ const Points = () => {
         ? (
           <div>
             <div className='grid justify-items-end prueba'>
-              <button onClick={() => setPointId('')} className=' relative justify-end p-4 back-btn'>
-                <Image src={flecha} />
+              <button onClick={() => setPointId('')} className='relative justify-end p-4 back-btn'>
+                <Image src={back} />
               </button>
               <Materials
                 pointId={pointId}
