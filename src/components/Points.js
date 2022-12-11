@@ -35,7 +35,7 @@ const Points = () => {
         ? (
           <div>
             <div className='grid justify-items-end prueba'>
-              <button onClick={() => setPointId('')} className='relative justify-end p-4 back-btn'>
+              <button onClick={() => setPointId('')} className='relative justify-end p-4 back-btn w-20 m-4 mr-6 hover:bg-zinc-400 hover:rounded-xl'>
                 <Image src={back} />
               </button>
               <Materials
@@ -48,17 +48,10 @@ const Points = () => {
           <div>
 
             {points.map((e) => (
-              <div key={e.id} className=''>
-                <button className='point-btn' onClick={() => setPointId(e.id)}>
+              <div key={e.id}>
+                <button className='fixed w-12 hover:opacity-50' style={{ top: `${e.coordY}%`, left: `${e.coordX}%` }} onClick={() => setPointId(e.id)}>
                   <Image src={fingerprint} />
                 </button>
-                <style jsx>{`
-                    button {              
-                        left: ${e.coordX}%;  
-                        top: ${e.coordY}%;
-                    }
-                `}
-                </style>
               </div>
             ))}
           </div>

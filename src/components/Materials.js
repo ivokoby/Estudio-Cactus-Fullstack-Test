@@ -40,9 +40,9 @@ const Materials = ({ pointId }) => {
                     <div key={e.id}>
                       <button className='hover:bg-white hover:rounded-lg btn-material material-responsive' onClick={() => handleChangeImage(e.layers[e.points])}>
                         <div className='flex justify-end p-4'>
-                          <p className='pt-8 pr-3 text-base material-name '>{e.name}</p>
+                          <p className='pt-8 pr-3 text-base opacity-0 hover:opacity-10'>{e.name}</p>
                           <div>
-                            <img className='w-24 h-24 border-4 border-white rounded-lg' src={e.materialPreview} alt='A' />
+                            <img className='w-24 h-24 border-4 border-white rounded-lg' src={e.materialPreview} alt='Material Preview' />
                           </div>
                         </div>
                       </button>
